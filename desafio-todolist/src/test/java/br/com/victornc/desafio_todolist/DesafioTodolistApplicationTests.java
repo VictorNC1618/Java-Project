@@ -8,7 +8,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import br.com.victornc.desafio_todolist.entity.Todo;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) //Serve para jogar abrir esse ambiente de teste em uma porta aleatória
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) //Serve para abrir esse ambiente de teste em uma porta aleatória
 class DesafioTodolistApplicationTests {
 	@Autowired
 	private WebTestClient webTest; //Serviço para fazer as requisições. É preciso a dependência WEB FLUX
@@ -19,7 +19,7 @@ class DesafioTodolistApplicationTests {
 
 		webTest
 				.post() //Faz a requisição do tipo POST para o meu endpoint
-				.uri("/todos") //URI que vai ser receber a requisição
+				.uri("/todos") //URI que vai receber a requisição
 				.bodyValue(todo) //Corpo da requisição POST
 				.exchange() //Faz a requisição
 				.expectStatus().isOk() //Define o Status esperado, OK, BAD REQUEST e outros
